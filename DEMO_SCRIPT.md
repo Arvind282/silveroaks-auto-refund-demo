@@ -9,7 +9,7 @@
 - ⏱️ ~10–12 min · 👥 Customer-facing · 🧑‍🤝‍🧑 Teammate on standby for Act 2
 - Legend: 🎤 = say · 🖱️ = click · ⌨️ = type · ✅ = expected · ✳️ = illustrative / CLI alt
 
-> **Pre-flight:** Logged into your workspace's Omnigent (`https://<your-databricks-workspace>/omnigent`). Context repo public & handy: **`https://github.com/arvind-kumar_data/silveroaks-auto-refund-demo`**. Teammate ready to open a link. Optionally pre-run one session as a fallback (Act 1 takes ~3–5 min).
+> **Pre-flight:** Logged into your workspace's Omnigent (`https://<your-databricks-workspace>/omnigent`). Context repo public & handy: **`https://github.com/Arvind282/silveroaks-auto-refund-demo`**. Teammate ready to open a link. Optionally pre-run one session as a fallback (Act 1 takes ~3–5 min).
 
 **Why UPI Auto-Reversal (the stakes, for the room):** In India a failed UPI debit is not a "nice to have" refund — under the **RBI Harmonisation of TAT** rules the money must be auto-reversed by **T+1**, or SilverOaks pays the customer **₹100/day**. It's high-volume, it's real money, and getting it subtly wrong is a fraud hole or a double-credit incident. Perfect thing to have two models argue about before a line of code is written.
 
@@ -23,7 +23,7 @@
 **Set up the session (home screen):**
 - 🖱️ Agent picker (defaults to "Claude Code") → **Debby — Multi-agent debate**.
 - 🖱️ Host button → **Databricks Sandbox**. 🎤 *"This runs in a Databricks-managed serverless sandbox, not on my laptop — that matters in act three."*
-- 🖱️ **Repository** → paste **`https://github.com/arvind-kumar_data/silveroaks-auto-refund-demo`**, branch **`main`** (the button then reads `silveroaks-auto-refund-demo#main`). ✅ Omnigent clones it into the sandbox as the working directory, so the agent starts with our context — the app, the **UPI-Payments vs. Ledger & Settlement** boundary, the `upi_txn_failed` schema, and the draft contract. 🎤 *"I'm pre-loading my team's context as a repo, so I don't paste a wall of background — and the agents build into it later."*
+- 🖱️ **Repository** → paste **`https://github.com/Arvind282/silveroaks-auto-refund-demo`**, branch **`main`** (the button then reads `silveroaks-auto-refund-demo#main`). ✅ Omnigent clones it into the sandbox as the working directory, so the agent starts with our context — the app, the **UPI-Payments vs. Ledger & Settlement** boundary, the `upi_txn_failed` schema, and the draft contract. 🎤 *"I'm pre-loading my team's context as a repo, so I don't paste a wall of background — and the agents build into it later."*
 - ⌨️ Now the opener is one line — start the session:
 > Read the repo for context (README + docs/reversal-contract.DRAFT.md), then have your two partners pressure-test our UPI Auto-Reversal feature and flag the open questions for the Ledger & Settlement team.
 > ✅ Debby `ls`'s the repo, reads the README/schema/contract ("I have full context now"), then dispatches the Claude 🟠 + GPT 🔵 partners. (Files panel shows "No files" until the clone finishes.)
@@ -92,7 +92,7 @@
 - **Agents in the picker:** Claude Code · Codex · Cursor · Pi · Polly (multi-agent coding) · Debby (multi-agent debate).
 - **Debby:** default = **side-by-side** (fans to a **Claude** 🟠 + **GPT** 🔵 sub-agent, shows both takes + "where they agree/differ," then offers debate-or-PRD); `/debate … for N rounds` adds visible cross-critique → synthesis; sub-agents show in the **Agents** panel.
 - **Host:** Databricks Sandbox (managed/serverless) or Connect new host; session shows "Provisioning sandbox…" then runs server-side.
-- **Repository attach:** paste a Git URL + branch on the launch screen → cloned into the sandbox as the working dir (public repos need no creds; private needs Databricks git credentials). Demo context repo: `github.com/arvind-kumar_data/silveroaks-auto-refund-demo`.
+- **Repository attach:** paste a Git URL + branch on the launch screen → cloned into the sandbox as the working dir (public repos need no creds; private needs Databricks git credentials). Demo context repo: `github.com/Arvind282/silveroaks-auto-refund-demo`.
 - **Share:** workspace-view toggle, or per-user **Read/Edit** grant + Copy link; you're **Owner**; teammate sees it under "Shared with me."
 - **Governance:** live **Session cost** + **Token usage**; **Add policy** incl. *Session Cost Budget* (hard-cap → forces model downgrade), *Per-User Daily Cost Budget*, *Deny PII in LLM Requests*, *Block Dangerous Shell Commands*, *Require Approval for File & Shell Ops*, *Deny Trivial Tasks on Expensive Models*, *Enforce Sandbox on Agent Start*, GitHub/Google/Gmail access controls.
 

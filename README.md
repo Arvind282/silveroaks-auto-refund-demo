@@ -5,7 +5,7 @@ A 10–15 min, customer-facing demo of **Omnigent** (Databricks' agent meta-harn
 > **Meta wink to open or close with:** *the assistant that helped build this demo runs inside Omnigent — everything you see, it does to itself.*
 
 - **Full talk track + exact prompts + fallbacks:** see [`DEMO_SCRIPT.md`](./DEMO_SCRIPT.md).
-- **Pre-staged context repo (attach this in the demo):** this repo — `https://github.com/arvind-kumar_data/silveroaks-auto-refund-demo`
+- **Pre-staged context repo (attach this in the demo):** this repo — `https://github.com/Arvind282/silveroaks-auto-refund-demo`
 - **Scenario:** you're a PM on the **UPI / Payments** team at **SilverOaks Fintech**, shipping **Auto-Reversal** — when a UPI payment fails *after* the customer's account is debited (money left, beneficiary credit/settlement didn't complete), reverse it automatically and immediately, instead of the customer raising a complaint and waiting days for a manual refund.
 
 Why this matters here specifically: failed-transaction reversals are **RBI-regulated** (Harmonisation of TAT — a failed UPI debit must be auto-reversed by **T+1**, or SilverOaks owes the customer **₹100/day** penalty), **high-volume**, and touch **real money** — the exact conditions where one model's blind spot is a fraud hole or a double-credit incident.
