@@ -1,0 +1,36 @@
+{
+  "event": "upi_txn_failed",
+  "version": "0.1-DRAFT",
+  "description": "Emitted by the UPI/Payments service when a UPI debit fails AFTER the payer's account was debited (money left, beneficiary credit or settlement did not complete). Consumed by Ledger & Settlement to decide and record an auto-reversal.",
+  "example": {
+    "txn_id": "SLVR-UPI-8f2c1a9e-2026-07-11",
+    "rrn": "451920237781",
+    "amount_paise": 249900,
+    "currency": "INR",
+    "payer_vpa": "asha.menon@silveroaks",
+    "payee_vpa": "q.store@okhdfcbank",
+    "payer_account_ref": "XXXXXX4471",
+    "channel": "P2M",
+    "failure_reason": "BENEFICIARY_CREDIT_TIMEOUT",
+    "debit_status": "SUCCESS",
+    "credit_status": "FAILED",
+    "npci_response_code": "U69",
+    "settlement_status": "UNSETTLED",
+    "initiated_at": "2026-07-11T09:41:12+05:30",
+    "failed_at": "2026-07-11T09:41:41+05:30",
+    "tat_deadline": "2026-07-12T09:41:41+05:30"
+  },
+  "fields": {
+    "txn_id": "Internal SilverOaks transaction id (idempotency candidate).",
+    "rrn": "NPCI Retrieval Reference Number — the switch-level id; the other idempotency candidate and the key for URCS dedup.",
+    "amount_paise": "Amount in paise (integer, avoid float money).",
+    "payer_vpa": "PII — payer UPI handle. Must be covered by the Deny-PII policy in Omnigent.",
+    "failure_reason": "One of BENEFICIARY_CREDIT_TIMEOUT | SWITCH_DECLINE | DEEMED_APPROVED_TIMEOUT | BENEFICIARY_BANK_DECLINE.",
+    "debit_status": "SUCCESS means money left the payer — the precondition for a reversal.",
+    "credit_status": "FAILED/PENDING — if it later flips to SUCCESS (late settlement), do NOT reverse.",
+    "npci_response_code": "NPCI code; used in reconciliation.",
+    "settlement_status": "UNSETTLED | SETTLED_LATE — the late-settlement race lives here.",
+    "tat_deadline": "RBI T+1 deadline; auto-reversal must complete by this or ₹100/day is owed to the customer."
+  },
+  "_note": "Synthetic/fictional data for the SilverOaks Fintech Omnigent demo."
+}
